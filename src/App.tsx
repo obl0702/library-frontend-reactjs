@@ -9,21 +9,24 @@ import { SearchBooksPage } from './layouts/SearchBooksPage/SearchBooksPage';
 
 export const App = () => {
   return (
-    <div>
+    <div className='d-flex flex-column min-vh-100'>
       <Navbar/>
-      <Switch>
-        <Route path='/' exact>
-          <Redirect to='/home'/>
-        </Route>
-        
-        <Route path='/home' exact>
-          <HomePage/>
-        </Route>
+      <div className='flex-grow-1'>
+        <Switch>
+          <Route path='/' exact>
+            <Redirect to='/home'/>
+          </Route>
 
-        <Route path='/search'>
-          <SearchBooksPage/>
-        </Route>
-      </Switch>
+          <Route path='/home' exact>
+            <HomePage/>
+          </Route>
+
+          <Route path='/search'>
+            <SearchBooksPage/>
+          </Route>
+        </Switch>
+      </div>
+      
       <Footer/>
     </div>
     
