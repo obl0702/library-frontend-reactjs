@@ -1,15 +1,17 @@
 export const StartsReview: React.FC<{ rating: number, size: number }> = (props) => {
     
     let rating = props.rating;
+    let maxstars = 5;
     let fullstars = 0;
     let halfstars = 0;
     let emptystars = 0;
+
 
     if( rating%1 !== 0){
         halfstars = 1;
     }
     fullstars = rating - (rating%1);
-    emptystars = 5 - fullstars - halfstars;
+    emptystars = maxstars - fullstars - halfstars;
 
     
     return (
