@@ -1,4 +1,10 @@
+import { useOktaAuth } from "@okta/okta-react";
+import { Link } from "react-router-dom";
+
 export const Heros = () => {
+
+    const {authState} = useOktaAuth();
+
     return (
         <div>
             <div className='d-none d-lg-block'>
@@ -14,7 +20,14 @@ export const Heros = () => {
                                 Whether it is to learn new skill or grow within one.
                                 We will be able to provide the top content for you!
                             </p>
-                            <a className="btn main-color btn-lg text-white" href="#">Sign Up</a>
+                            {authState?.isAuthenticated ?
+                                <Link type='button' className="btn main-color btn-lg text-white" to='search'>
+                                    Explore top books
+                                </Link>
+                                :
+                                <Link className="btn main-color btn-lg text-white" to="/login">Sign Up</Link>
+                            }
+                            
                         </div>
                     </div>
                 </div>
@@ -49,7 +62,13 @@ export const Heros = () => {
                                 for our Luv 2 Read students! We are dilegent about our book selection 
                                 and our book selection and our book are always going to be our top priority
                             </p>
-                            <a className="btn main-color btn-lg text-white" href="#">Sign Up</a>
+                            {authState?.isAuthenticated ?
+                                <Link type='button' className="btn main-color btn-lg text-white" to='search'>
+                                    Explore top books
+                                </Link>
+                                :
+                                <Link className="btn main-color btn-lg text-white" to="/login">Sign Up</Link>
+                            }
                         </div>
                     </div>
                     <div className="m-2">
